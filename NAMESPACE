@@ -1,0 +1,18 @@
+### Imports
+
+
+### Exports
+
+#Univariate distributions
+export(dtsal, ptsal, qtsal, rtsal)
+export(dtsal.tail, ptsal.tail, qtsal.tail, rtsal.tail)
+export(tsal.mean)
+
+#Fit
+export(tsal.loglik, tsal.fisher, tsal.fit)
+
+#Test
+export(test.tsal.quantile.transform, test.tsal.LR.distribution)
+
+#Bootstrap
+export(tsal.bootstrap.errors, tsal.total.magnitude)

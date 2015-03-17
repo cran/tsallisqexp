@@ -1,0 +1,59 @@
+=== tsallisqexp: Q-exp (also called Tsallis) distribution ===
+
+
+Version 0.9-1
+=============
+
+- initial release for CRAN. 
+- 
+
+Version 0.9-0
+=============
+
+- initial release as a true R package. 
+- bug fixes in (d,p,q)tsal.tail and tsal.mle.equation functions.
+- remove NaN sometimes produced by (d,p,q)tsal(.tail) and tsal.mle.equation functions.
+
+Version 0.2-0 
+=============
+
+- Updated version (0.2.1) finished on 6 February 2007: 
+ 1. Added optional multiplier argument to tsal.total.magnitude
+
+
+Version 0.2-0
+=============
+
+- Updated version (0.2) finished on 5 February 2007:
+ 1. Lifted constraints in fitting functions that shape and scale be > 0,
+    as negative values correspond to q < 1, and are perfectly OK
+ 2. tsal.mle.equation now uses two brackets, one for positive and one
+    for negative scale; tsal.mle.direct still called if neither works
+ 3. tsal.mle.direct now uses two initial conditions, one for q > 1 and one
+    for q < 1, goes with the higher likelihood
+ 4. dtsal and dtsal.tail now only evaluate log(shape/scale), rather than
+    log(shape) - log(scale)
+ 5. Added tsal.mean to calculate the expectation value
+ 6. Added tsal.total.magnitude to estimate the total size and number of
+    objects in a population sampled from the tail, per Doug White
+
+
+Version 0.1-0
+=============
+
+- Updated version (0.1) finished on 30 January 2007:
+ 1. added right-tail-conditional versions of d/p/q/r tsal for censored data
+ 2. ordinary d/p/q/r tsal, loglike now take xmin argument, defaulting to 0
+ 3. MLEs now take xmin argument, defaulting to zero
+ 4. tsal.mle.equation checks whether initial bracket of root makes sense,
+    if not, passes job to tsal.mle.direct (slower but always sensible)
+ 5. tsal.fit records method used
+ 6. tsal.bootstrap.errors takes method argument
+ 7. tsal.bootstrap.errors takes xmin argument
+ 8. added tsal.fisher to calculate Fisher information matrix
+ 9. tsal.fit added "leastsquares" method as alias for "curvefit"
+
+Version 0.0-0
+=============
+
+- Preliminary version (0.0) finished on 28 January 2007.

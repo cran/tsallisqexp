@@ -1,0 +1,285 @@
+% \VignetteIndexEntry{Q-exponential family}
+% \VignetteKeywords{htest}
+% \VignettePackage{tsallisqexp}
+
+%----------------------------------------------------------------------------------------------------------
+% 	Copyright (c) 2011 Christophe Dutang, 
+% 	
+% 	The following Latex code is given as an example and not The example
+%	of using Latex to write report, memoir or thesis. 
+%
+%	The licence is unlimited but the copyright authors could NOT be liable
+%	for any direct or indirect damages caused by the use of the following code.
+%
+%	The following code could be compiled :
+%	  - on windows with a Tex distribution such as miktex (http://miktex.org) 
+%		and a front end Latex editor such as texniccenter (http://www.toolscenter.org)
+%	  - on mac os with a Tex distribution such as TexLive and a front end Latex
+%	  	editor such as Texshop (http://www.uoregon.edu/~koch/texshop/)
+%	  - on linux with a Tex distribution such as teTex (http://www.tug.org/teTeX/)
+%	  	and a front end Latex editor such as emacs (http://www.gnu.org/software/emacs/)
+%
+%	  We may use \'e (\`e, \`a,...) instead of the accented character to ensure the 
+%	    portability of the Latex code. This is NOT an obligation of Latex.
+%
+%----------------------------------------------------------------------------------------------------------
+
+\documentclass[11pt,twoside]{article}
+
+% package
+%symbole math de l'American Mathematical Society (AMS)
+\usepackage{amsfonts,amssymb,amsmath,amsthm}
+%utiliser les regles de typographie francaise
+\usepackage[english]{babel}
+\usepackage{a4wide,courier,newlfont}
+
+% accents 8 bits dans le fichier
+%\usepackage[applemac]{inputenc} %MAC encoding
+%\usepackage[utf8]{inputenc} %UNIX encoding
+\usepackage[utf8x]{inputenc} %UNIX encoding on MAC
+%\usepackage[ansinew]{inputenc} %WINDOWS encoding
+
+%graphique
+\usepackage[dvips]{graphicx}
+\usepackage{color,graphics, wrapfig, subfig}
+
+\usepackage{tabls}
+
+%citation
+\usepackage{natbib}
+
+%short toc
+\usepackage{shorttoc}
+
+%reference hypertext
+\usepackage[pagebackref=true, hyperfootnotes=false]{hyperref}
+
+%note de bas de page
+\usepackage[symbol,stable]{footmisc}
+\usepackage{perpage}
+\MakePerPage[1]{footnote}
+
+%header
+%\pagestyle{headings}
+
+%pour les url
+\usepackage{url}
+\urlstyle{sf}
+
+%plusieur colonne dans tableau
+\usepackage{multirow, multicol}
+
+% todo's
+\usepackage{todonotes}
+% usage: \todo[color=green]{TODO}blabla 
+
+
+
+% layout sinon utiliser vmargin
+\normalsize\setlength{\parskip}{\baselineskip}
+\setlength{\oddsidemargin}{20mm}
+\setlength{\evensidemargin}{20mm}
+\setlength{\voffset}{-1in}
+\setlength{\hoffset}{-1in}
+\setlength{\textwidth}{175mm}
+\setlength{\topmargin}{0mm}
+\setlength{\headheight}{05mm}
+\setlength{\headsep}{05mm}
+\setlength{\topskip}{0mm}
+\setlength{\textheight}{250mm}
+
+
+
+
+% les macros generales
+
+%layout
+\newcommand{\HRuleTop}{\noindent\rule{\linewidth}{.5pt}}
+\newcommand{\HRuleBottom}{\rule{\linewidth}{.5pt}}
+\newcommand{\ligne}{\rule[2mm]{.3\textwidth}{0,5mm}\\}
+\newcommand{\myskip}{\vspace{\parskip}}
+\newcommand{\mytodo}[1]{\todo[color=green]{TODO}#1}
+\newcommand{\blank}{ \clearpage{\pagestyle{empty}\cleardoublepage} }
+
+
+%text style
+\newcommand{\pkg}{\textbf}
+\newcommand{\sigle}{\textsc}
+\newcommand{\code}{\texttt}
+\newcommand{\soft}{\textsf}
+\newcommand{\txtm}[1]{\textrm{~~#1~~}}
+\newcommand{\expo}{\textsuperscript}
+
+%\newcommand{\(}{\left(}
+
+
+%system
+\newcommand{\systL}{\left\{\begin{array}{l}}
+\newcommand{\systR}{\end{array}\right.}
+\newcommand{\matL}{\left(\begin{matrix}}
+\newcommand{\matR}{\end{matrix}\right)}
+\newcommand{\detL}{\left|\begin{matrix}}
+\newcommand{\detR}{\end{matrix}\right|}
+
+
+
+%sets
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\X}{\mathbb X}
+\newcommand{\C}{\mathbb C}
+\newcommand{\K}{\mathbb K}
+\newcommand{\Rnm}{\R^{n\times m}}
+\newcommand{\Cnm}{\C^{n\times m}}
+\newcommand{\Knm}{\K^{n\times m}}
+\newcommand{\Kmn}{\K^{m\times n}}
+\newcommand{\Knn}{\K^{n\times n}}
+\newcommand{\Kmp}{\K^{m\times p}}
+
+
+
+
+\title{On the different parametrizations of the Q-exponential family distribution}
+\author{C. Dutang\footnote{LMM, Universit\'e du Maine, F-Le Mans city}, P. Higbie\footnote{NMSU, Mexico}}
+
+
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\maketitle
+
+\section{q-exponential family}
+The density (Eq. (18) of Naudt (2007)) is defined as
+$$
+f_\theta(x) = c(x) \exp_q(-\alpha(\theta)-\theta H(x)),
+$$
+where $c$, $\alpha$ and $H$ are known functions.
+Furthermore, $\exp_q$ is the $q$-deformed exponential function defined as
+$$
+\exp_q(z)= [1+(1-q)z]_+^{1/(1-q)} \text{ for } z\in\R, q\neq 1,
+$$
+where $[z]_+=\max(z,0)$. 
+$\exp_q$ is construct as the inverse of the $q$-deformed logarithm defined as
+$$
+\log_q(z) = \frac{z^{1-q}-1}{1-q} \text{ for } z\in\R, q\neq 1.
+$$
+In particular, $\forall z\in\R, \exp_q(\log_q(z)) =z$ and $\forall z\neq0, \log_q(\exp_q(z)) =z$.
+Special case: for $q\rightarrow1$, $\exp_q\rightarrow \exp$ and we get the exponential family.
+
+
+Let us find the domain where $1+(1-q)z>0$:
+\begin{itemize}
+\item
+If $q>1$, i.e. $1-q< 0$ then
+$$
+1+(1-q) z >0
+\Leftrightarrow 1>-(1-q) z
+\Leftrightarrow \frac{-1}{1-q}>z
+$$
+\item
+If $q<1$, i.e. $1-q> 0$ then
+$$
+1+(1-q) z >0
+\Leftrightarrow 1>-(1-q) z
+\Leftrightarrow \frac{1}{1-q}<z
+$$
+\end{itemize}
+
+
+
+
+\newpage
+\section{q-Gaussian}
+Using 
+$$
+c(x) = 1/c_q, ~
+c_q = \sqrt{\frac{\pi}{1-q}} \frac{\Gamma(1+1/(1-q))}{\Gamma(3/2+1/(1-q))},~
+H(x)=x^2,~
+\alpha(\theta) = \frac{\theta^{\frac{q-1}{3-q}}-1}{q-1},~
+\theta=\sigma^{q-3},
+$$
+we have $\alpha(\sigma) = \frac{\sigma^{q-1}-1}{q-1}=\log_{2-q}(\sigma)$.
+We get
+\begin{eqnarray*}
+f_\sigma(x) 
+&=& \frac{1}{c_q} \exp_q(-\log_{2-q}(\sigma) - x^2\sigma^{q-3})
+= \frac{1}{c_q} \exp_q(- \frac{\sigma^{-1+q}-1}{-1+q} - x^2\sigma^{q-3})
+\\
+&=& \frac{1}{c_q} \exp_q( \frac{(1/\sigma)^{1-q}-1}{1-q} - x^2\sigma^{q-3})
+= \frac{1}{c_q} \left[1+(1-q)\frac{(1/\sigma)^{1-q}-1}{1-q} - (1-q)x^2\sigma^{q-3}\right]_+^{1/(1-q)}
+\\
+&=&
+\frac{1}{c_q} \left[(1/\sigma)^{1-q} - (1-q)x^2\sigma^{q-3}\right]_+^{1/(1-q)}
+=\frac{1}{c_q\sigma} \left[ 1 -  (1-q)\sigma^{1-q} x^2\sigma^{q-3}\right]_+^{1/(1-q)}  
+\\
+&=&
+\frac{1}{c_q\sigma} \left[ 1 -  (1-q)x^2/\sigma^{2} \right]_+^{1/(1-q)}  
+= \frac{1}{c_q\sigma}\exp_q(-x^2/\sigma^2)
+\end{eqnarray*}
+This is different from Section 6 of Naudt (2007) where there is a typo.
+
+
+
+
+
+\section{q-Exponential}
+Using 
+$$
+c(x) = 1/c_q, ~
+c_q = \sqrt \kappa,~
+H(x)=x,~
+\alpha(\theta) = \frac{\theta^{\frac{q-1}{3-q}}-1}{q-1},~
+\theta=\kappa^{\frac{q-3}{2}},
+$$
+we get
+$$
+f_\kappa(x) 
+= \frac{1}{ \kappa}\exp_q(-x/\kappa)
+= \frac{1}{ \kappa}\left(1-(1-q) \frac{x}{\kappa}\right)_+^{1/(1-q)}.
+$$
+There exists another parametrization 
+$$
+\systL
+\alpha+1 = -1/(1-q) \\ %1/(alpha+1) = -(1-q) => 1-1/(alpha+1)=q
+\sigma = \alpha\kappa 
+\systR
+\Leftrightarrow
+\systL
+\sigma = \alpha\kappa \\
+-1/(\alpha+1) = 1-q \\ 
+\systR
+\Leftrightarrow
+\systL
+\kappa = \sigma/\alpha \\
+q = 1 + 1/(\alpha+1)
+\systR
+$$
+Using the parametrization $(\alpha,\sigma)$, we get the following density and distribution function
+$$
+f(x) = \frac{\alpha}{ \sigma}\left(1+ \frac{x}{\sigma}\right)_+^{-\alpha-1},~
+F(x) = 1- \left(1+ \frac{x}{\sigma}\right)_+^{-\alpha} .
+$$
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Bibiliography.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bibliography}
+
+\noindent
+Naudt, J. (2007),
+{\it The q-exponential family in statistical physics}, 
+Journal of Physics: Conference Series 201 (2010) 012003.
+
+\noindent
+Shalizi, C. (2007),
+{\it Maximum Likelihood Estimation for q-Exponential (Tsallis) Distributions}, 
+\url{http://arxiv.org/abs/math/0701854v2}.
+
+
+
+\end{document}
