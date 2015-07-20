@@ -1,11 +1,17 @@
 === tsallisqexp: Q-exp (also called Tsallis) distribution ===
 
 
+Version 0.9-2
+=============
+
+- update for R 3.3.0. 
+
+
 Version 0.9-1
 =============
 
 - initial release for CRAN. 
-- 
+ 
 
 Version 0.9-0
 =============

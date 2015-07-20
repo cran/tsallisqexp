@@ -1,5 +1,5 @@
-f682e326b54456af21adb2ea034a4a7b *DESCRIPTION
-fb7d9c99a8830219cd8ff07ca427de1e *NAMESPACE
+111214b3289308ae0e0eeef91640be78 *DESCRIPTION
+01944ea2c6f5376779f226b99b682690 *NAMESPACE
 bcf33f970ad2979de06950eb266b22e7 *R/tsal-boot.R
 9b95102d73335d3076fea04975a6792d *R/tsal-cens.R
 d472f26b9818c41854fb19550863493c *R/tsal-distr.R
@@ -7,11 +7,11 @@ adc4972ddc8788d00ee0a867347abaf1 *R/tsal-fit.R
 6feba7f3431e58d8497c916857817319 *R/tsal-param.R
 5d4a35da7968bfd056480a62302516c8 *R/tsal-test.R
 e29839bd2b6e940d5856fe260571b783 *R/util-aux.R
-87732b40a3b7204f2a4c95aa8f718196 *build/vignette.rds
-e275ee3cff0514d4c8900a5fbd55a9ce *inst/CITATION
-b3545adee00e49ed65ee7bb356735d94 *inst/NEWS
+6397bc797b14560886bdbf9f07d080eb *build/vignette.rds
+af07f7a2b56981e8ebad9d0d72190a26 *inst/CITATION
+4004a51c680abe809d64c87726be500a *inst/NEWS
 8c5546b8df62cacdaafffd92c3d0040c *inst/doc/qexpfamily.Rnw
-e8a82119171a8be133f76a6d6f2d2fb3 *inst/doc/qexpfamily.pdf
+72879c9f5370537d905bdcfd19e78eea *inst/doc/qexpfamily.pdf
 b4970788b00b4e287cedb76ac2e60be7 *man/tsal-boot.Rd
 d9ca412e73c136259c073caf98e00fee *man/tsal-cens.Rd
 57fb1cd16dbdbebd0e6136fe611371cc *man/tsal-distr.Rd

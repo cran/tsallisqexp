@@ -1,5 +1,6 @@
 ### Imports
-
+importFrom("graphics", curve, plot)
+importFrom("stats", ecdf, knots, ks.test, optim, pchisq, quantile, runif, sd, uniroot)
 
 ### Exports
 
