@@ -10,6 +10,6 @@ bibentry(bibtype = "Manual",
          author = c(person("Shalizi", "Cosma"), person("Dutang", "Christophe")),
          year = year,
          note = note,
-         url = "http://CRAN.R-project.org/package=tsallisqexp")
+         url = "https://CRAN.R-project.org/package=tsallisqexp")
 
 

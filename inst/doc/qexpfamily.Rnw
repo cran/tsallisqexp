@@ -24,14 +24,14 @@
 %
 %----------------------------------------------------------------------------------------------------------
 
-\documentclass[11pt,twoside]{article}
+\documentclass[11pt]{article}
 
 % package
 %symbole math de l'American Mathematical Society (AMS)
 \usepackage{amsfonts,amssymb,amsmath,amsthm}
 %utiliser les regles de typographie francaise
 \usepackage[english]{babel}
-\usepackage{a4wide,courier,newlfont}
+\usepackage{courier,newlfont}
 
 % accents 8 bits dans le fichier
 %\usepackage[applemac]{inputenc} %MAC encoding

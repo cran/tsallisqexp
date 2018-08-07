@@ -1,5 +1,10 @@
 === tsallisqexp: Q-exp (also called Tsallis) distribution ===
 
+Version 0.9-3
+=============
+
+- remove error when rebuilding vignettes on CRAN on r-oldrel-osx-x86_64.
+
 
 Version 0.9-2
 =============
