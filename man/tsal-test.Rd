@@ -62,7 +62,7 @@ test against theoretical distribution.
 \references{
 
 \emph{Maximum Likelihood Estimation for q-Exponential (Tsallis) Distributions},
-\url{http://bactra.org/research/tsallis-MLE/} and \url{http://arxiv.org/abs/math.ST/0701854}.
+\url{http://bactra.org/research/tsallis-MLE/} and \url{https://arxiv.org/abs/math/0701854}.
 
 
 }

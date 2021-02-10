@@ -3,7 +3,7 @@
 % \VignettePackage{tsallisqexp}
 
 %----------------------------------------------------------------------------------------------------------
-% 	Copyright (c) 2011 Christophe Dutang, 
+% 	Copyright (c) 2021 Christophe Dutang, 
 % 	
 % 	The following Latex code is given as an example and not The example
 %	of using Latex to write report, memoir or thesis. 
@@ -24,40 +24,25 @@
 %
 %----------------------------------------------------------------------------------------------------------
 
-\documentclass[11pt]{article}
+\documentclass[11pt, a4paper]{article}
 
 % package
 %symbole math de l'American Mathematical Society (AMS)
 \usepackage{amsfonts,amssymb,amsmath,amsthm}
 %utiliser les regles de typographie francaise
 \usepackage[english]{babel}
-\usepackage{courier,newlfont}
 
 % accents 8 bits dans le fichier
 %\usepackage[applemac]{inputenc} %MAC encoding
-%\usepackage[utf8]{inputenc} %UNIX encoding
-\usepackage[utf8x]{inputenc} %UNIX encoding on MAC
+\usepackage[utf8]{inputenc} %UNIX encoding
+%\usepackage[utf8x]{inputenc} %UNIX encoding on MAC
 %\usepackage[ansinew]{inputenc} %WINDOWS encoding
 
 %graphique
-\usepackage[dvips]{graphicx}
-\usepackage{color,graphics, wrapfig, subfig}
-
-\usepackage{tabls}
-
-%citation
-\usepackage{natbib}
-
-%short toc
-\usepackage{shorttoc}
+\usepackage{color, graphicx, wrapfig, subfig}
 
 %reference hypertext
-\usepackage[pagebackref=true, hyperfootnotes=false]{hyperref}
-
-%note de bas de page
-\usepackage[symbol,stable]{footmisc}
-\usepackage{perpage}
-\MakePerPage[1]{footnote}
+\usepackage[hyperfootnotes=false]{hyperref}
 
 %header
 %\pagestyle{headings}
@@ -69,24 +54,7 @@
 %plusieur colonne dans tableau
 \usepackage{multirow, multicol}
 
-% todo's
-\usepackage{todonotes}
-% usage: \todo[color=green]{TODO}blabla 
-
-
-
-% layout sinon utiliser vmargin
-\normalsize\setlength{\parskip}{\baselineskip}
-\setlength{\oddsidemargin}{20mm}
-\setlength{\evensidemargin}{20mm}
-\setlength{\voffset}{-1in}
-\setlength{\hoffset}{-1in}
-\setlength{\textwidth}{175mm}
-\setlength{\topmargin}{0mm}
-\setlength{\headheight}{05mm}
-\setlength{\headsep}{05mm}
-\setlength{\topskip}{0mm}
-\setlength{\textheight}{250mm}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
 
 
 
@@ -107,7 +75,6 @@
 \newcommand{\sigle}{\textsc}
 \newcommand{\code}{\texttt}
 \newcommand{\soft}{\textsf}
-\newcommand{\txtm}[1]{\textrm{~~#1~~}}
 \newcommand{\expo}{\textsuperscript}
 
 %\newcommand{\(}{\left(}
@@ -124,24 +91,16 @@
 
 
 %sets
-\newcommand{\R}{\mathbb R}
-\newcommand{\N}{\mathbb N}
-\newcommand{\Z}{\mathbb Z}
-\newcommand{\X}{\mathbb X}
-\newcommand{\C}{\mathbb C}
-\newcommand{\K}{\mathbb K}
-\newcommand{\Rnm}{\R^{n\times m}}
-\newcommand{\Cnm}{\C^{n\times m}}
-\newcommand{\Knm}{\K^{n\times m}}
-\newcommand{\Kmn}{\K^{m\times n}}
-\newcommand{\Knn}{\K^{n\times n}}
-\newcommand{\Kmp}{\K^{m\times p}}
-
+\ifdefined\R
+\renewcommand{\R}{\mathbb{R}}
+\else
+\newcommand{\R}{\mathbb{R}}
+\fi
 
 
 
 \title{On the different parametrizations of the Q-exponential family distribution}
-\author{C. Dutang\footnote{LMM, Universit\'e du Maine, F-Le Mans city}, P. Higbie\footnote{NMSU, Mexico}}
+\author{C. Dutang\footnote{Univ. Paris-Dauphine, PSL Univ., Paris}, P. Higbie\footnote{NMSU, Mexico}}
 
 
 

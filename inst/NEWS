@@ -1,5 +1,11 @@
 === tsallisqexp: Q-exp (also called Tsallis) distribution ===
 
+Version 0.9-4
+=============
+
+- package failed to re-build their vignettes with hyperref 7.00g so update
+the vignette in particular, better defined LaTeX macros \C, \F or \U.
+
 Version 0.9-3
 =============
 
