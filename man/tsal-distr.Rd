@@ -76,7 +76,8 @@ It is convenient to introduce a re-parameterization
 \references{
 
 \emph{Maximum Likelihood Estimation for q-Exponential (Tsallis) Distributions},
-\url{http://bactra.org/research/tsallis-MLE/} and \url{https://arxiv.org/abs/math/0701854}.
+C. Shalizi, \url{http://bactra.org/research/tsallis-MLE/} and 
+arxiv.org: 0701854.
 
 
 }

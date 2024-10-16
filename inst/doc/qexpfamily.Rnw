@@ -57,8 +57,6 @@
 \usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
 
 
-
-
 % les macros generales
 
 %layout
@@ -100,7 +98,7 @@
 
 
 \title{On the different parametrizations of the Q-exponential family distribution}
-\author{C. Dutang\footnote{Univ. Paris-Dauphine, PSL Univ., Paris}, P. Higbie\footnote{NMSU, Mexico}}
+\author{C. Dutang\footnote{LJK, CNRS, Grenoble INP - UGA}, P. Higbie\footnote{NMSU, Mexico}}
 
 
 

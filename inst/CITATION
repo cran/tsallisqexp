@@ -7,7 +7,7 @@ note <- sprintf("R package version %s", meta$Version)
 
 bibentry(bibtype = "Manual",
          title = "tsallisqexp: Tsallis distribution",
-         author = c(person("Shalizi", "Cosma"), person("Dutang", "Christophe")),
+         author = c(person("Christophe", "Dutang"), person("Cosma", "Shalizi")),
          year = year,
          note = note,
          url = "https://CRAN.R-project.org/package=tsallisqexp")
